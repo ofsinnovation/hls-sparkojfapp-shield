@@ -1,0 +1,48 @@
+{
+  "name": "spark-in-space-app",
+  "description": "sample spark job for your spark cluster in a private space",
+  "keywords": [
+    "spark",
+    "private-spaces",
+    "dns-discovery"
+  ],
+  "repository": "https://github.com/herokumx/spark-in-space-app",
+  "env": {
+    "LOG_LEVEL": {
+      "description": "log4j log level for spark",
+      "value":  "INFO"
+    },
+    "SPARK_MASTER_APP": {
+       "description": "name of the spark-in-space cluster that is running the spark master process(es)",
+       "required": true
+    },
+    "SPARK_MASTERS": {
+      "description": "number of spark masters expected to be running",
+      "value": "1"
+    }
+  },
+  "formation": {
+    "job": {
+      "quantity": 1,
+      "size": "Private-L"
+    }
+  },
+  "image": "heroku/jvm",
+  "addons": [
+    {
+      "plan": "bucketeer",  
+      "as": "SPARK_JOB_S3"
+    }
+  ],
+  "buildpacks": [
+    {
+      "url": "https://github.com/heroku/heroku-buildpack-scala.git"
+    },
+    {
+      "url": "https://github.com/herokumx/heroku-buildpack-space-proxy.git"
+    },
+    {
+      "url": "https://github.com/herokumx/spark-in-space.git"
+    },
+  ]
+}

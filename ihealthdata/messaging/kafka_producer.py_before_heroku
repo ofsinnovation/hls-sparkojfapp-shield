@@ -1,0 +1,30 @@
+
+## This is the Kafka-Producer Class
+import ihealthdata.utils.loggerutils as logger
+from ihealthdata.helper.HelperVariable import *
+from kafka import KafkaProducer
+
+class Kafka_Producer(object):
+
+	def __init__(self):
+	
+		# Instantiating HelperVariable
+		self.hv = HelperVariable()
+
+                # Setting up Kafka-Brokers
+		# self.producer = KafkaProducer(bootstrap_servers = '10.0.0.15:31000,10.0.0.13:31000,10.0.0.14:31000,10.0.0.16:31000,10.0.0.16:31001')
+
+		self.producer = KafkaProducer(bootstrap_servers = self.hv.KAFKA_SCHEDULER)
+
+	def produce(self, data_point):
+
+		d = {"peopleid":data_point.iloc[0]['peopleid'], "datetime":data_point.iloc[0]['datetime'] ,\
+             	     "heartrate":data_point.iloc[0]['heartrate'], "activityid":data_point.iloc[0]['activityid'], \
+                     "seqno":data_point.iloc[0]['seqno'], "imuhandtemp":data_point.iloc[0]['imuhandtemp']}
+
+		strMessage = str(d)
+		print(strMessage)
+		self.producer.send(self.hv.KAFKA_TOPIC_QUEUE, strMessage)
+		return
+
+############################ EOF #############################################################################

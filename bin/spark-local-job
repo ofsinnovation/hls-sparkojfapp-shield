@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# bin/spark-job
+#
+# run the spark job, using only the current machine, not a cluster.
+# can be used to run import jobs, where transforming a file locally may be faster than via s3
+
+job=$1
+shift
+
+erb /app/conf/spark-defaults.conf.erb > /app/spark-home/conf/spark-defaults.conf
+erb /app/conf/log4j.properties.erb > /app/spark-home/conf/log4j.properties
+
+exec /app/spark-home/bin/spark-submit --class $job /app/target/scala-2.10/spark-in-space-app-assembly-1.0.jar

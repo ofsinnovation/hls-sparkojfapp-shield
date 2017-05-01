@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# bin/spark-job
+#
+# run the spark job.
+
+job=$1
+shift
+/app/bin/spark-submit --class $job /app/target/scala-2.10/spark-in-space-app-assembly-1.0.jar

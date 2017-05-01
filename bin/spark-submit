@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# bin/spark-shell
+# generate spark-defaults.conf and start a spark-shell pointing at correct master url.
+
+erb /app/conf/spark-defaults.conf.erb > /app/spark-home/conf/spark-defaults.conf
+erb /app/conf/log4j.properties.erb > /app/spark-home/conf/log4j.properties
+
+exec /app/spark-home/bin/spark-submit --master $(/app/bin/master-url) "$@"
+#exec /app/spark-home/bin/spark-submit --master "spark://10.0.138.77:7077" "$@"

@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+# bin/compile <build-dir> <cache-dir> <env-dir>
+# heroku inline buildpack
+
+set -e
+
+build_dir=$1
+cache_dir=$2
+env_dir=$3
+bp_dir=$(dirname $(dirname $0))
+
+
+notice() {
+  echo "-----> $@..."
+}
+
+start() {
+  echo -n "-----> $@..."
+}
+
+finish() {
+  echo " Done."
+}
+
+cd $build_dir
+
+start Overlaying Spark Config into spark-home
+cp $build_dir/conf/* $build_dir/spark-home/conf
+finish
+
+start Cleaning SBT Fat
+rm -rf $build_dir/project/target
+rm -rf $build_dir/target/streams
+rm -rf $build_dir/.sbt_home
+finish
+
+
