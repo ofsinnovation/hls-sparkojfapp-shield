@@ -5,4 +5,4 @@
 
 job=$1
 shift
-/app/bin/spark-submit $job /app/ihealth_anomaly_detection.py
+/app/bin/spark-submit $job ihealth_anomaly_detection.py
