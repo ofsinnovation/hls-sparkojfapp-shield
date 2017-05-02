@@ -72,3 +72,4 @@ wcwidth==0.1.7
 Werkzeug==0.11.15
 sqlalchemy
 psycopg2
+cryptography
