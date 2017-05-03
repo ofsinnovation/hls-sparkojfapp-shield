@@ -195,7 +195,7 @@ class Consumer(object):
 
 		spark_df = self.sqlContext.createDataFrame(pandas_df)
 		df_dataset = spark_df.rdd.map(lambda row: LabeledPoint\
-                     			(self.ACTIVITY_ENCODER_DICTIONARY[row.activityid],
+                     			(ACTIVITY_ENCODER_DICTIONARY[row.activityid],
 					 [ float(row.heartrate),       \
                                          float(row.imuankleacc16gxaxis), \
                                          float(row.imuankleacc16gyaxis), \
@@ -264,60 +264,65 @@ class Consumer(object):
 					impurity = self.hv.IMPURITY, maxDepth = self.hv.MAX_DEPTH, maxBins = self.hv.MAX_BINS)"""
 
 		#################################################################################################
+		
+		num_classes = self.hv.NUM_CLASSES
+		impurity = self.hv.IMPURITY
+		max_depth = self.hv.MAX_DEPTH
+		max_bins = self.hv.MAX_BINS
 
 		if(peopleid == 101):
 
 			self.activity_detection_model_101 = DecisionTree.trainClassifier( \
-							trainingData, numClasses = self.hv.NUM_CLASSES, categoricalFeaturesInfo={}, \
-							impurity = self.hv.IMPURITY, maxDepth = self.hv.MAX_DEPTH, maxBins = self.hv.MAX_BINS)
+							trainingData, numClasses = num_classes, categoricalFeaturesInfo={}, \
+							impurity = impurity, maxDepth = max_depth, maxBins = max_bins)
 
 		if(peopleid == 102):
 
 				self.activity_detection_model_102 = DecisionTree.trainClassifier( \
-								trainingData, numClasses = self.hv.NUM_CLASSES, categoricalFeaturesInfo={}, \
-								impurity = self.hv.IMPURITY, maxDepth = self.hv.MAX_DEPTH, maxBins = self.hv.MAX_BINS)
+								trainingData, numClasses = num_classes, categoricalFeaturesInfo={}, \
+								impurity = impurity, maxDepth = max_depth, maxBins = max_bins)
 
 		if(peopleid == 103):
 
 				self.activity_detection_model_103 = DecisionTree.trainClassifier( \
-								trainingData, numClasses = self.hv.NUM_CLASSES, categoricalFeaturesInfo={}, \
-								impurity = self.hv.IMPURITY, maxDepth = self.hv.MAX_DEPTH, maxBins = self.hv.MAX_BINS)
+								trainingData, numClasses = num_classes, categoricalFeaturesInfo={}, \
+								impurity = impurity, maxDepth = max_depth, maxBins = max_bins)
 
 		if(peopleid == 104):
 
 				self.activity_detection_model_104 = DecisionTree.trainClassifier( \
-								trainingData, numClasses = self.hv.NUM_CLASSES, categoricalFeaturesInfo={}, \
-								impurity = self.hv.IMPURITY, maxDepth = self.hv.MAX_DEPTH, maxBins = self.hv.MAX_BINS)
+								trainingData, numClasses = num_classes, categoricalFeaturesInfo={}, \
+								impurity = impurity, maxDepth = max_depth, maxBins = max_bins)
 
 		if(peopleid == 105):
 
 				self.activity_detection_model_105 = DecisionTree.trainClassifier( \
-								trainingData, numClasses = self.hv.NUM_CLASSES, categoricalFeaturesInfo={}, \
-								impurity = self.hv.IMPURITY, maxDepth = self.hv.MAX_DEPTH, maxBins = self.hv.MAX_BINS)
+								trainingData, numClasses = num_classes, categoricalFeaturesInfo={}, \
+								impurity = impurity, maxDepth = max_depth, maxBins = max_bins)
 
 		if(peopleid == 106):
 
 				self.activity_detection_model_106 = DecisionTree.trainClassifier( \
-								trainingData, numClasses = self.hv.NUM_CLASSES, categoricalFeaturesInfo={}, \
-								impurity = self.hv.IMPURITY, maxDepth = self.hv.MAX_DEPTH, maxBins = self.hv.MAX_BINS)
+								trainingData, numClasses = num_classes, categoricalFeaturesInfo={}, \
+								impurity = impurity, maxDepth = max_depth, maxBins = max_bins)
 
 		if(peopleid == 107):
 
 				self.activity_detection_model_107 = DecisionTree.trainClassifier( \
-								trainingData, numClasses = self.hv.NUM_CLASSES, categoricalFeaturesInfo={}, \
-								impurity = self.hv.IMPURITY, maxDepth = self.hv.MAX_DEPTH, maxBins = self.hv.MAX_BINS)
+								trainingData, numClasses = num_classes, categoricalFeaturesInfo={}, \
+								impurity = impurity, maxDepth = max_depth, maxBins = max_bins)
 
 		if(peopleid == 108):
 
 				self.activity_detection_model_108 = DecisionTree.trainClassifier( \
-								trainingData, numClasses = self.hv.NUM_CLASSES, categoricalFeaturesInfo={}, \
-								impurity = self.hv.IMPURITY, maxDepth = self.hv.MAX_DEPTH, maxBins = self.hv.MAX_BINS)
+								trainingData, numClasses = num_classes, categoricalFeaturesInfo={}, \
+								impurity = impurity, maxDepth = max_depth, maxBins = max_bins)
 
 		if(peopleid == 109):
 
 				self.activity_detection_model_109 = DecisionTree.trainClassifier( \
-								trainingData, numClasses = self.hv.NUM_CLASSES, categoricalFeaturesInfo={}, \
-								impurity = self.hv.IMPURITY, maxDepth = self.hv.MAX_DEPTH, maxBins = self.hv.MAX_BINS)
+								trainingData, numClasses = num_classes, categoricalFeaturesInfo={}, \
+								impurity = impurity, maxDepth = max_depth, maxBins = max_bins)
 
 
 		####################################################################################################
@@ -1194,6 +1199,8 @@ class Consumer(object):
 
 
 if __name__ == '__main__':
+	hv = HelperVariable()
+	ACTIVITY_ENCODER_DICTIONARY = hv.ACTIVITY_ENCODER_DICTIONARY_INITIALIZER
 
 	c = Consumer()
 	c.trigger_stream()
