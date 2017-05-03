@@ -6,7 +6,7 @@
     "private-spaces",
     "dns-discovery"
   ],
-  "repository": "https://github.com/herokumx/spark-in-space-app",
+  "repository": "https://github.com/ofsinnovation/hls-sparkojfapp-shield",
   "env": {
     "LOG_LEVEL": {
       "description": "log4j log level for spark",
