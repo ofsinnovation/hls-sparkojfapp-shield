@@ -259,9 +259,9 @@ class Consumer(object):
 		# String initialization of model dictionary is messing things up
 
 
-		self.ACTIVITY_PREDICTION_MODEL_DICTIONARY[peopleid] = DecisionTree.trainClassifier( \
+		""""self.ACTIVITY_PREDICTION_MODEL_DICTIONARY[peopleid] = DecisionTree.trainClassifier( \
 					trainingData, numClasses = self.hv.NUM_CLASSES, categoricalFeaturesInfo={}, \
-					impurity = self.hv.IMPURITY, maxDepth = self.hv.MAX_DEPTH, maxBins = self.hv.MAX_BINS)
+					impurity = self.hv.IMPURITY, maxDepth = self.hv.MAX_DEPTH, maxBins = self.hv.MAX_BINS)"""
 
 		#################################################################################################
 
