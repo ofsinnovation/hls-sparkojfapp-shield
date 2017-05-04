@@ -5,6 +5,8 @@ export PYTHONPATH=home/centos/spark-2.0.2-bin-hadoop2.7/python/lib/py4j-0.10.3-s
 spark-submit --packages org.apache.spark:spark-streaming-kafka-0-8_2.11:2.0.1,TargetHolding/pyspark-cassandra:0.3.5     /home/centos/release1_5/ihealthdata/consumer/kaustav_ihealth_anomaly_detection.py
 '''
 
+
+
 import math
 #from __future__ import print_function
 from pyspark import SparkContext,SparkConf,SQLContext
@@ -163,6 +165,8 @@ class Consumer(object):
 
 		# Setting up Spark-Context
 		self.sc = SparkContext()
+		self.sc.addPyFile("dependencies.zip")
+		import dependencies.zip
 
 		# Setting up Spark-SQL-Context
 		self.sqlContext = SQLContext(self.sc)
