@@ -5,4 +5,5 @@
 
 job=$1
 shift
+/app/bin/dpcdy-mgr
 /app/bin/spark-submit $job

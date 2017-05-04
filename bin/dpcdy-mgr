@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# bin/dpdcy-mgr
+#
+# Run Pip to create dependency zip in the home folder
+
+echo "--> Starting to create dependencies.zip"
+
+/app/.heroku/python/bin/pip install -t depdencies -r requirements.txt
+cd depdencies
+zip -r ../dependencies.zip .
+
+echo "--> Successfully Created"
