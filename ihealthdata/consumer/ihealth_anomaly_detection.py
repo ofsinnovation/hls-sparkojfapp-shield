@@ -165,10 +165,8 @@ class Consumer(object):
 
 		# Setting up Spark-Context
 		self.sc = SparkContext()
-		self.sc.addPyFile("dependencies.zip")
-		import dependencies.zip
-
-		# Setting up Spark-SQL-Context
+		
+		#Setting up Spark-SQL-Context
 		self.sqlContext = SQLContext(self.sc)
 
 		# Setting up Spark-Streaming-Context with Batch of 10 secs
