@@ -4,13 +4,12 @@ from pyspark.mllib.tree import DecisionTree, DecisionTreeModel
 from pyspark.mllib.regression import LabeledPoint
 from pyspark.sql import SparkSession
 from pyspark.streaming.kafka import KafkaUtils
+import numpy as np
 import pip
-
 
 
 def install_and_import(x):
     pip.main(['install', 'numpy=1.11.2'])
-    import numpy as np
     pip.main(['install', 'configparser==3.5.0'])
     pip.main(['install', 'nupic==0.5.7'])
     pip.main(['install', 'kafka-python==1.3.1'])
@@ -21,6 +20,11 @@ def install_and_import(x):
     pip.main(['install', 'scipy==0.18.1'])
     return x
 
+
+def test_job(sc):
+    test_rdd = sc.parallelize(np.array([1,2,3,4]))
+    test_rdd.collect()
+    print('Rdd Collected')
 
 
 def install_dependencies(sc):
@@ -33,4 +37,4 @@ if __name__ == '__main__':
     sc = SparkContext()
     sqlContext = SQLContext(sc)
     install_dependencies(sc)
-    #ssc = StreamingContext(sc, hv.SPARK_STREAMING_CONTEXT_DURATION)
+    test_job(sc)
