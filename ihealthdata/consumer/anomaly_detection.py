@@ -10,6 +10,7 @@ import pip
 
 def install_and_import(x):
     pip.main(['install', 'numpy=1.11.2'])
+    import numpy as np
     pip.main(['install', 'configparser==3.5.0'])
     pip.main(['install', 'nupic==0.5.7'])
     pip.main(['install', 'kafka-python==1.3.1'])
@@ -19,6 +20,7 @@ def install_and_import(x):
     pip.main(['install', 'pandas==0.19.1'])
     pip.main(['install', 'scipy==0.18.1'])
     return x
+
 
 
 def install_dependencies(sc):
