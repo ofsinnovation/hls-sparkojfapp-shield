@@ -162,5 +162,5 @@ if __name__ == '__main__':
     sc = SparkContext()
     sqlContext = SQLContext(sc)
     #install_dependencies(sc)
-    sc.addPyFile("dependencies.zip")
+    sc.addPyFile("/app/dependencies.zip")
     activity_prediction_model_creation()
