@@ -5,5 +5,5 @@
 erb /app/conf/spark-defaults.conf.erb > /app/spark-home/conf/spark-defaults.conf
 erb /app/conf/log4j.properties.erb > /app/spark-home/conf/log4j.properties
 
-exec /app/spark-home/bin/spark-submit --master $(/app/bin/master-url) --packages org.apache.spark:spark-streaming-kafka-0-8_2.11:2.0.1 --py-files dependencies.zip "$@"
+exec /app/spark-home/bin/spark-submit --master $(/app/bin/master-url) --packages org.apache.spark:spark-streaming-kafka-0-8_2.11:2.0.1 "$@"
 
