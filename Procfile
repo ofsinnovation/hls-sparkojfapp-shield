@@ -1,2 +1,2 @@
-job: bin/spark-job /app/ihealthdata/consumer/spark-job.py
+job: bin/spark-job /app/ihealthdata/consumer/anomaly_detection.py
 console: bin/sleep

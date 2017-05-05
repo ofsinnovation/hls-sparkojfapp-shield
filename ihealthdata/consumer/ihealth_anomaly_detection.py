@@ -1201,9 +1201,6 @@ class Consumer(object):
 
 
 if __name__ == '__main__':
-	hv = HelperVariable()
-	ACTIVITY_ENCODER_DICTIONARY = hv.ACTIVITY_ENCODER_DICTIONARY_INITIALIZER
-
 	c = Consumer()
 	c.trigger_stream()
 
