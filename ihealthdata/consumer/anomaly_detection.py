@@ -161,6 +161,6 @@ if __name__ == '__main__':
     conn = PostgresConnector()
     sc = SparkContext()
     sqlContext = SQLContext(sc)
-    install_dependencies(sc)
-    #sc.addPyFile("dependencies.zip")
+    #install_dependencies(sc)
+    sc.addPyFile("dependencies.zip")
     activity_prediction_model_creation()
