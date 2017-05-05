@@ -198,58 +198,58 @@ class Consumer(object):
 		spark_df = self.sqlContext.createDataFrame(pandas_df)
 		df_dataset = spark_df.rdd.map(lambda row: LabeledPoint\
                      			(ACTIVITY_ENCODER_DICTIONARY[row.activityid],
-					 [ float(row.heartrate),       \
-                                         float(row.imuankleacc16gxaxis), \
-                                         float(row.imuankleacc16gyaxis), \
-                                         float(row.imuankleacc16gzaxis), \
-                                         float(row.imuankleacc6gxaxis),  \
-                                         float(row.imuankleacc6gyaxis),  \
-                                         # float(imuankleacc6gzaxis),  \
-                                         float(row.imuanklegyroxaxis),   \
-                                         float(row.imuanklegyroyaxis),   \
-                                         float(row.imuanklegyrozaxis),   \
-                                         float(row.imuanklemagxaxis),    \
-                                         float(row.imuanklemagyaxis),    \
-                                         float(row.imuanklemagzaxis),    \
-                                         float(row.imuankleori1),        \
-                                         float(row.imuankleori2),        \
-                                         float(row.imuankleori3),        \
-                                         float(row.imuankleori4),        \
-					 					 float(row.imuankletemp),        \
-                                         float(row.imuchestacc16gxaxis), \
-                                         float(row.imuchestacc16gyaxis), \
-                                         float(row.imuchestacc16gzaxis), \
-                                         float(row.imuchestacc6gxaxis),  \
-                                         float(row.imuchestacc6gyaxis),  \
-                                         float(row.imuchestacc6gzaxis),  \
-                                         float(row.imuchestgyroxaxis),   \
-                                         float(row.imuchestgyroyaxis),   \
-                                         float(row.imuchestgyrozaxis),   \
-                                         float(row.imuchestmagxaxis),    \
-                                         float(row.imuchestmagyaxis),    \
-                                         float(row.imuchestmagzaxis),    \
-                                         float(row.imuchestori1),        \
-                                         float(row.imuchestori2),        \
-                                         float(row.imuchestori3),        \
-                                         float(row.imuchestori4),        \
-                                         float(row.imuchesttemp),        \
-                                         float(row.imuhandacc16gxaxis),  \
-                                         float(row.imuhandacc16gyaxis),  \
-                                         float(row.imuhandacc16gzaxis),  \
-                                         float(row.imuhandacc6gxaxis),   \
-                                         float(row.imuhandacc6gyaxis),   \
-                                         float(row.imuhandacc6gzaxis),   \
-                                         float(row.imuhandgyroxaxis),    \
-                                         float(row.imuhandgyroyaxis),    \
-                                         float(row.imuhandgyrozaxis),    \
-			   		 					 float(row.imuhandmagxaxis),     \
-                                         float(row.imuhandmagyaxis),     \
-                                         float(row.imuhandmagzaxis),     \
-                                         float(row.imuhandori1),         \
-                                         float(row.imuhandori2),         \
-                                         float(row.imuhandori3),         \
-                                         float(row.imuhandori4),         \
-                                         float(row.imuhandtemp)]))
+						 [ float(row.heartrate),       \
+											 float(row.imuankleacc16gxaxis), \
+											 float(row.imuankleacc16gyaxis), \
+											 float(row.imuankleacc16gzaxis), \
+											 float(row.imuankleacc6gxaxis),  \
+											 float(row.imuankleacc6gyaxis),  \
+											 # float(imuankleacc6gzaxis),  \
+											 float(row.imuanklegyroxaxis),   \
+											 float(row.imuanklegyroyaxis),   \
+											 float(row.imuanklegyrozaxis),   \
+											 float(row.imuanklemagxaxis),    \
+											 float(row.imuanklemagyaxis),    \
+											 float(row.imuanklemagzaxis),    \
+											 float(row.imuankleori1),        \
+											 float(row.imuankleori2),        \
+											 float(row.imuankleori3),        \
+											 float(row.imuankleori4),        \
+											 float(row.imuankletemp),        \
+											 float(row.imuchestacc16gxaxis), \
+											 float(row.imuchestacc16gyaxis), \
+											 float(row.imuchestacc16gzaxis), \
+											 float(row.imuchestacc6gxaxis),  \
+											 float(row.imuchestacc6gyaxis),  \
+											 float(row.imuchestacc6gzaxis),  \
+											 float(row.imuchestgyroxaxis),   \
+											 float(row.imuchestgyroyaxis),   \
+											 float(row.imuchestgyrozaxis),   \
+											 float(row.imuchestmagxaxis),    \
+											 float(row.imuchestmagyaxis),    \
+											 float(row.imuchestmagzaxis),    \
+											 float(row.imuchestori1),        \
+											 float(row.imuchestori2),        \
+											 float(row.imuchestori3),        \
+											 float(row.imuchestori4),        \
+											 float(row.imuchesttemp),        \
+											 float(row.imuhandacc16gxaxis),  \
+											 float(row.imuhandacc16gyaxis),  \
+											 float(row.imuhandacc16gzaxis),  \
+											 float(row.imuhandacc6gxaxis),   \
+											 float(row.imuhandacc6gyaxis),   \
+											 float(row.imuhandacc6gzaxis),   \
+											 float(row.imuhandgyroxaxis),    \
+											 float(row.imuhandgyroyaxis),    \
+											 float(row.imuhandgyrozaxis),    \
+											 float(row.imuhandmagxaxis),     \
+											 float(row.imuhandmagyaxis),     \
+											 float(row.imuhandmagzaxis),     \
+											 float(row.imuhandori1),         \
+											 float(row.imuhandori2),         \
+											 float(row.imuhandori3),         \
+											 float(row.imuhandori4),         \
+											 float(row.imuhandtemp)]))
 
 
 		# (self.hv.ACTIVITY_ENCODER_DICTIONARY_INITIALIZER[row.activityid], [row.heartrate,row.imuhandtemp]))
