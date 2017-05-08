@@ -1189,9 +1189,12 @@ class Consumer(object):
 		
 		print("=====> Kafka Brokers obtained are =====>")
 		print(get_kafka_brokers())
+		kafka_brokers = ''.join(get_kafka_brokers())
+		print('======> Converted String ======>')
+		print(kafka_brokers)
 
 		self.kafkaStream = KafkaUtils.createDirectStream(self.ssc, [self.hv.KAFKA_TOPIC_QUEUE], \
-														 {"metadata.broker.list": get_kafka_brokers()})
+														 {"metadata.broker.list": kafka_brokers})
 
 		print(type(self.kafkaStream))
 		print(self.kafkaStream)
