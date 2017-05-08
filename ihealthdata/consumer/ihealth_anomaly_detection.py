@@ -1189,7 +1189,7 @@ class Consumer(object):
 		
 		print("=====> Kafka Brokers obtained are =====>")
 		print(get_kafka_brokers())
-		kafka_brokers = ''.join(get_kafka_brokers())
+		kafka_brokers = ','.join(map(str,get_kafka_brokers()))
 		print('======> Converted String ======>')
 		print(kafka_brokers)
 
