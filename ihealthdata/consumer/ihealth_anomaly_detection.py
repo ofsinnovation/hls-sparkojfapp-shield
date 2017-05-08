@@ -1186,6 +1186,9 @@ class Consumer(object):
 		self.kafkaStream = KafkaUtils.createDirectStream(self.ssc, ["test"], \
 					{"metadata.broker.list": self.hv.KAFKA_SCHEDULER })
 		'''
+		
+		print("=====> Kafka Brokers obtained are =====>")
+		print(get_kafka_brokers())
 
 		self.kafkaStream = KafkaUtils.createDirectStream(self.ssc, [self.hv.KAFKA_TOPIC_QUEUE], \
 														 {"metadata.broker.list": get_kafka_brokers()})
