@@ -196,6 +196,7 @@ class Consumer(object):
 		print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~  " + str(peopleid))
 
 		spark_df = self.sqlContext.createDataFrame(pandas_df)
+		ACTIVITY_ENCODER_DICTIONARY = self.ACTIVITY_ENCODER_DICTIONARY
 		df_dataset = spark_df.rdd.map(lambda row: LabeledPoint\
                      			(ACTIVITY_ENCODER_DICTIONARY[row.activityid],
 						 [ float(row.heartrate),       \
