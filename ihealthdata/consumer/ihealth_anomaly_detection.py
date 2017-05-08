@@ -74,7 +74,7 @@ class Consumer(object):
 
 	def __init__(self):
 		self.hv = HelperVariable()
-		ACTIVITY_ENCODER_DICTIONARY = self.hv.ACTIVITY_ENCODER_DICTIONARY_INITIALIZER
+		self.ACTIVITY_ENCODER_DICTIONARY = self.hv.ACTIVITY_ENCODER_DICTIONARY_INITIALIZER
 
 		self.deco = ParserDecorator()
 		self.conn = PostgresConnector()
