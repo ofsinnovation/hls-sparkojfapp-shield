@@ -23,6 +23,11 @@ class ParserDecorator(object):
         return val_str
 
     def df_column_rename(self, raw_df):
+        print("============> RAW DF ============>")
+        print(raw_df)
+        pandas_df = raw_df.toPandas()
+        print("converted pandas df in the decorator =====>")
+        print(pandas_df)
         # raw_df = self.raw_df
         df = raw_df.withColumnRenamed("_1", "imuanklemagyaxis") \
             .withColumnRenamed("_2", "heartrate") \

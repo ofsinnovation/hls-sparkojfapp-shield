@@ -762,25 +762,16 @@ class Consumer(object):
 	#################################################################################################
 	def streamrdd_to_df(self,srdd):
 
-		# print("SRDD ############3###########################3")
-		# print(srdd)
+
 		df = srdd.toDF()
 
-		print("DF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
-		print(df)
 
 		## Pandas HACK
 		pdf = self.deco.df_column_rename(df)
 
-		print("print the after column rename @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
 		# print(pdf)
 		pdf_string = pdf.astype(str)
 
-		# print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
-
-	 	#	print(pdf_string.dtypes)
-
-	 	# print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
 
 		pdf_string = pdf_string.applymap(self.deco.df_get_value)
 		# print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$printing pdf_string")
