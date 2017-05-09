@@ -1205,7 +1205,7 @@ class Consumer(object):
 		'''
 
 		zkQuorum, topic = get_zk_list(), self.hv.KAFKA_TOPIC_QUEUE
-		self.kafkaStream = KafkaUtils.createStream(self.ssc, zkQuorum, "spark-streaming-consumer", {topic})
+		self.kafkaStream = KafkaUtils.createStream(self.ssc, zkQuorum, "spark-streaming-consumer", {topic:1})
 
 		print(type(self.kafkaStream))
 		print(self.kafkaStream)
