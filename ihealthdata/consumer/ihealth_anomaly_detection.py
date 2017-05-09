@@ -782,10 +782,10 @@ class Consumer(object):
 		for current_stream_index in range(0, pdf_size):
 
 			# 1
-			seqno = self.parser(pdf_string.ix[current_stream_index,'seqno'])
+			seqno = int(self.parser(pdf_string.ix[current_stream_index,'seqno']))
 			print("seqno = ", seqno)
 
-			seqno = int(seqno.encode('ascii', 'ignore'))
+			#seqno = int(seqno.encode('ascii', 'ignore'))
 
 			# 2
 			peopleid = self.parser(pdf_string.ix[current_stream_index,'peopleid'])
