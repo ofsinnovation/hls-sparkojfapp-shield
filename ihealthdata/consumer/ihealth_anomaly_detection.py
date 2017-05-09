@@ -773,14 +773,12 @@ class Consumer(object):
 		pdf_string = pdf.astype(str)
 		pdf_string = pdf_string.applymap(self.deco.df_get_value)
 
-
 		pdf_size = len(pdf.index)
+		print("===================> Data Frame")
+		print(pdf_string)
         # print(pdf_size)
 
-
-
 		for current_stream_index in range(0, pdf_size):
-
 
 			# 1
 			seqno = self.parser(pdf_string.ix[current_stream_index,'seqno'])
