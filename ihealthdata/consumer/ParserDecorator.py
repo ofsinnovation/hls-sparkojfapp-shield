@@ -28,9 +28,12 @@ class ParserDecorator(object):
         #pandas_df = raw_df.toPandas()
         #print("converted pandas df in the decorator =====>")
         #print(pandas_df)
-        raw_df = self.raw_df
+        #raw_df = self.raw_df
+
+        pdf = raw_df.toPandas()
         print("=======> Checking out the get name hack")
-        print(self.df_get_name(raw_df.iloc[0, ["_1"]]))
+        print(self.df_get_name(pdf.iloc[0, ["_1"]]))
+
         df = raw_df.withColumnRenamed("_1", "imuanklemagyaxis") \
             .withColumnRenamed("_2", "heartrate") \
             .withColumnRenamed("_3", "imuchestgyrozaxis") \
