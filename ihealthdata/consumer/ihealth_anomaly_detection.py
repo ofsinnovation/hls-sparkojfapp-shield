@@ -771,10 +771,7 @@ class Consumer(object):
 
 		# print(pdf)
 		pdf_string = pdf.astype(str)
-
-
 		pdf_string = pdf_string.applymap(self.deco.df_get_value)
-		# print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$printing pdf_string")
 
 
 		pdf_size = len(pdf.index)

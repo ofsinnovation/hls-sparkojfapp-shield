@@ -23,12 +23,14 @@ class ParserDecorator(object):
         return val_str
 
     def df_column_rename(self, raw_df):
-        print("============> RAW DF ============>")
-        print(raw_df)
-        pandas_df = raw_df.toPandas()
-        print("converted pandas df in the decorator =====>")
-        print(pandas_df)
+        #print("============> RAW DF ============>")
+        #print(raw_df)
+        #pandas_df = raw_df.toPandas()
+        #print("converted pandas df in the decorator =====>")
+        #print(pandas_df)
         # raw_df = self.raw_df
+        print("=======> Checking out the get name hack")
+        print(self.df_get_name(raw_df.iloc[0, ["_1"]]))
         df = raw_df.withColumnRenamed("_1", "imuanklemagyaxis") \
             .withColumnRenamed("_2", "heartrate") \
             .withColumnRenamed("_3", "imuchestgyrozaxis") \
@@ -139,5 +141,10 @@ class ParserDecorator(object):
         # the split the data frame value which contains the columnname:value
         y = x.split(':')
         return y[1]
+
+    def df_get_name(self, x):
+        y = x.split(':')
+        return y[0]
+
 
 
