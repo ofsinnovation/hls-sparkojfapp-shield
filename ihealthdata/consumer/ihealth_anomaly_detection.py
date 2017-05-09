@@ -775,6 +775,8 @@ class Consumer(object):
 	 	# print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
 
 		pdf_string = pdf_string.applymap(self.deco.df_get_value)
+		print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$printing pdf_string")
+		print(pdf_string)
 		#print pdf_string
 		#	print pdf_string.columns.tolist()
 		#	print("^^^^^^^^PDF_STRING^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
@@ -794,7 +796,9 @@ class Consumer(object):
 			seqno = self.parser(pdf_string.ix[current_stream_index,'seqno'])
 			print("seqno = ", seqno)
 
-					# 2
+			seqno = int(seqno.encode('ascii', 'ignore'))
+
+			# 2
 			peopleid = self.parser(pdf_string.ix[current_stream_index,'peopleid'])
 			print("peopleid = ", peopleid)
 
@@ -1210,8 +1214,11 @@ class Consumer(object):
 
 		self.kafkaStream = KafkaUtils.createStream(self.ssc, zk_url, "spark-streaming-consumer", {topic:1})
 
+		print('printing K ======>')
+
 		print(type(self.kafkaStream))
 		print(self.kafkaStream)
+
 
 		self.raw = self.kafkaStream.flatMap(lambda kafkaS: [kafkaS])
 		self.clean = self.raw.map(lambda xs: xs[1].split(","))
