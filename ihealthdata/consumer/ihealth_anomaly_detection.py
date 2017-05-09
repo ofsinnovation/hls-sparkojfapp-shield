@@ -762,8 +762,8 @@ class Consumer(object):
 	#################################################################################################
 	def streamrdd_to_df(self,srdd):
 
-		print("SRDD ############3###########################3")
-		print(srdd)
+		# print("SRDD ############3###########################3")
+		# print(srdd)
 		df = srdd.toDF()
 
 		print("DF %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
@@ -773,7 +773,7 @@ class Consumer(object):
 		pdf = self.deco.df_column_rename(df)
 
 		print("print the after column rename @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-		print(pdf)
+		# print(pdf)
 		pdf_string = pdf.astype(str)
 
 		# print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
@@ -783,14 +783,8 @@ class Consumer(object):
 	 	# print("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%")
 
 		pdf_string = pdf_string.applymap(self.deco.df_get_value)
-		print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$printing pdf_string")
-		print(pdf_string)
-		#print pdf_string
-		#	print pdf_string.columns.tolist()
-		#	print("^^^^^^^^PDF_STRING^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^")
+		# print("$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$printing pdf_string")
 
-		# Pandas Frame Print
-		# print(pdf_string)
 
 		pdf_size = len(pdf.index)
         # print(pdf_size)
