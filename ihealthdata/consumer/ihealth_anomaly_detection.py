@@ -1015,11 +1015,11 @@ class Consumer(object):
 			print("imuhandtemp = ", imuhandtemp)
 
 			# 59
-			isactive = self.parser(pdf_string.ix[current_stream_index,'isactive'])
+			isactive = pdf_string.ix[current_stream_index,'isactive']
 			print("isactive = ", isactive)
 
 			# 60
-			rowid = self.parser(pdf_string.ix[current_stream_index,'rowid'])
+			rowid = pdf_string.ix[current_stream_index,'rowid']
 			print("rowid = ", rowid)
 
 			# 61 - Not using this
