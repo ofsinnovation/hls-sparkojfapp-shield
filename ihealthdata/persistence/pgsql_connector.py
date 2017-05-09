@@ -178,7 +178,7 @@ class PostgresConnector(object):
         #activitymonitoringsimulatedanomaly = self.meta.tables['activitymonitoringsimulatedanomaly']
 
         clause = activity_prediction.update().values(dummy=str(dummy), \
-                                                     anomaly_status=str(anomaly_status)).where(peopleid=peopleid)
+                                                     anomaly_status=str(anomaly_status)).where(peopleid==str(peopleid))
 
         """clause = activitymonitoringsimulatedanomaly.select().where( \
             and_( \
