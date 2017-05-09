@@ -32,7 +32,7 @@ class ParserDecorator(object):
 
         pdf = raw_df.toPandas()
         print("=======> Checking out the get name hack")
-        print(self.df_get_name(str(pdf.iloc[0, ["_1"]])))
+        print(self.df_get_name(str(pdf["_1"][0])))
 
         df = raw_df.withColumnRenamed("_1", "imuanklemagyaxis") \
             .withColumnRenamed("_2", "heartrate") \
