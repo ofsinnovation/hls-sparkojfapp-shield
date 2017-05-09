@@ -215,7 +215,6 @@ class ParserDecorator(object):
         y = x.split(':')
         return y[0]
 
-    def df_replace_left_paranthesis(self, ):
 
 
 
