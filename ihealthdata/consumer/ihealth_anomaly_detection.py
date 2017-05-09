@@ -28,7 +28,7 @@ from ihealthdata.persistence.pgsql_connector import PostgresConnector
 from ihealthdata.utils.Encoder import * #Encode_Label
 import ihealthdata.utils.loggerutils as logger
 from ihealthdata.consumer.ParserDecorator import ParserDecorator
-from ihealthdata.messaging.kafka_helper import  get_kafka_brokers
+from ihealthdata.messaging.kafka_helper import  get_kafka_brokers, get_kafka_consumer, get_zk_list
 import sys
 
 
@@ -1195,8 +1195,17 @@ class Consumer(object):
 		print('Kakfka Topic ======>')
 		print(self.hv.KAFKA_TOPIC_QUEUE)
 
+		'''
 		self.kafkaStream = KafkaUtils.createDirectStream(self.ssc, [self.hv.KAFKA_TOPIC_QUEUE], \
 														 {"metadata.broker.list": kafka_brokers})
+
+
+		self.kafkaStream = KafkaUtils.createDirectStream(self.ssc, [self.hv.KAFKA_TOPIC_QUEUE], \
+												 {"metadata.broker.list": kafka_brokers})
+		'''
+
+		zkQuorum, topic = get_zk_list(), self.hv.KAFKA_TOPIC_QUEUE
+		self.kafkaStream = KafkaUtils.createStream(self.ssc, zkQuorum, "spark-streaming-consumer", {topic})
 
 		print(type(self.kafkaStream))
 		print(self.kafkaStream)
