@@ -135,7 +135,7 @@ class PostgresConnector(object):
 
 
     def insert_cardiac_exception(self, peopleid, exceptiondatetime, \
-                                 seqno, activityid, isAnomaly, heartrate, riskscore):
+                                 seqno, activityid, isanomaly, heartrate, riskscore):
 
 
         activity_prediction = self.meta.tables['cardiac_exceptions']
@@ -144,7 +144,7 @@ class PostgresConnector(object):
                                                      exceptiondatetime=str(exceptiondatetime), \
                                                      seqno=str(seqno), \
                                                      activityid=str(activityid), \
-                                                     isAnomaly=str(isAnomaly), \
+                                                     isanomaly=str(isanomaly), \
                                                      heartrate=str(heartrate), \
                                                      riskscore=str(riskscore))
 
