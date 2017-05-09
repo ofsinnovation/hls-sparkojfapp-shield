@@ -788,7 +788,7 @@ class Consumer(object):
 			#seqno = int(seqno.encode('ascii', 'ignore'))
 
 			# 2
-			peopleid = self.parser(pdf_string.ix[current_stream_index,'peopleid'])
+			peopleid = int(self.parser(pdf_string.ix[current_stream_index,'peopleid']))
 			print("peopleid = ", peopleid)
 
 			# 3
