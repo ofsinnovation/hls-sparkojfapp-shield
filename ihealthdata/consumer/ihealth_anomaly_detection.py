@@ -774,8 +774,9 @@ class Consumer(object):
 		pdf_string = pdf_string.applymap(self.deco.df_get_value)
 
 		pdf_size = len(pdf.index)
-		print("===================> Data Frame")
-		print(pdf_string)
+		print("===================> Data Frame columns")
+		print(pdf_string.columns)
+		#print(pdf_string['seqno'])
         # print(pdf_size)
 
 		for current_stream_index in range(0, pdf_size):
