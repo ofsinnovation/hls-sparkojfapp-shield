@@ -164,7 +164,6 @@ class ParserDecorator(object):
 
         ## Pandas HACK
         ## Should I do self.pdf or just pdf
-        pdf = df.toPandas()
         # print(pdf)
         return pdf
 
