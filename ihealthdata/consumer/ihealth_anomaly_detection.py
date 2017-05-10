@@ -588,7 +588,6 @@ class Consumer(object):
 			isanomaly = "RED"
 		else:
 			isanomaly = "GREEN"
-
 		## Introducing Jitter to make it more life-like
 		if(anomalyScore < 0.1):
 
