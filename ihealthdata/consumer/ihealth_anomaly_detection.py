@@ -1026,9 +1026,9 @@ class Consumer(object):
 			# sourceid = self.parser(pdf_string.ix[current_stream_index,'sourceid'])
 			# print("sourceid = ", sourceid
 
-
-			current_time = datetime.now()
-
+			# changed the current_time to the below for the issue of date time in msec.
+			# current_time = datetime.now()
+			current_time = datetime.strptime(datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')[:-3], '%Y-%m-%d %H:%M:%S.%f')
 
 			actual_activity_id = activityid
 
