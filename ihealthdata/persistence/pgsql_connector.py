@@ -197,7 +197,8 @@ class PostgresConnector(object):
             and_( \
                 activitymonitoringhistorical.c.peopleid == peopleid \
                 ) \
-            ).limit(1000)
+            )
+     #       ).limit(1000)
         print("getting DF for peopleid = ", peopleid)
         print(clause)
         df = pd.read_sql(clause, self.conn)
