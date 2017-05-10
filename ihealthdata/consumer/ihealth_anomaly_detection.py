@@ -689,7 +689,7 @@ class Consumer(object):
 
 	def Activity_Prediction_Results(self, test_df, peopleid):
 
-		# Ganapathy - We need to make this dictionary work
+		# - We need to make this dictionary work
 		# self.ACTIVITY_PREDICTION_MODEL_DICTIONARY[peopleid].predict(test_df.map(lambda x: x.features))
 
 		if(peopleid == 101):
@@ -1041,7 +1041,7 @@ class Consumer(object):
 
 
 			## Creation of Spark Session
-			## Ganapathy - After we switch from Spark-Context to Streaming Context, if we try to use
+			## - After we switch from Spark-Context to Streaming Context, if we try to use
 			## Spark-SQL-Context to create the PySpark Dataframe, it is not able to switch the context
 			## and then again revert back to Streaming-Context. That is the reason that I am
 			## using creating and using Spark-Session. I do not understand fully what is happening under
