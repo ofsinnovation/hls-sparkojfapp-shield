@@ -1,6 +1,6 @@
 ### spark-in-space-app
 
-Heroku Button deploy of a sample Spark Job repo that can be executed against a [spark-in-space](https://github.com/heroku/spark-in-space) cluster.
+Heroku Button deploy of a sample Spark Job repo that can be executed against a [spark-in-space](https://github.com/heroku/spark-in-space) cluster. 
 
 requires: a private space with dns-discovery enabled, and an spark-in-space cluster running [spark-in-space](https://github.com/heroku/spark-in-space).
 
